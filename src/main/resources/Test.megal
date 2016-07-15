@@ -1,0 +1,13 @@
+model Test ('urn:$name/')
+
+Artifact < Entity
+Fragment < Artifact
+
+partOf < rel(Entity, Entity)
+hasPart reverseOf partOf
+
+x hasPart y
+x hasPart z
+
+reasoner 'http://jena.hpl.hp.com/2003/JenaReasoner#hasRule'
+    '(?a ?p ?b) (?p reverseOf ?q) -> (?b ?q ?a).'

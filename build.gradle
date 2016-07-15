@@ -1,0 +1,32 @@
+group 'org.softlang.megal'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.0.3'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'antlr'
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.0.2"
+    compile "org.apache.jena:apache-jena-libs:3.1.0"
+    compile "com.google.guava:guava:19.0"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.slf4j:slf4j-nop:1.7.21"
+    antlr "org.antlr:antlr4:4.5"
+
+}
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
